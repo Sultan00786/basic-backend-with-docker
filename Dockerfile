@@ -1,6 +1,13 @@
-From node:22-alpine
+FROM node:22-alpine
 
-WORKDIR ./app
+WORKDIR /app
+
+COPY ./package.json ./package.json
+COPY ./package-lock.json ./package-lock.json
+RUN npm install
 
 COPY . .
 
+EXPOSE 3000
+
+CMD ["node", "src/index.js"]
