@@ -15,7 +15,7 @@ postgers url in`.env file
 - Start Postgress Db locally using docker
   - Run `docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres`
 - Build the docker image
-  - by running `docker build . -t your-repo`
+  - by running `docker build -t your-repo .`
 - Start container
   - Run `docker run -p 3000:3000 your-repo`
 
