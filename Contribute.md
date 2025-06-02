@@ -13,12 +13,15 @@ postgers url in`.env file
 ## Installation using DockekrFile
 
 - Install docker from [docker](https://www.docker.com/get-started)
+- Create new docker network
+  - Run `docker network create network_name`
 - Start Postgress Db locally using docker
-  - Run `docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres`
+  - Run `docker run --name postgres -e POSTGRES_PASSWORD=yourpassword --network network_name -d -p 5432:5432 postgres`
 - Build the docker image
-  - by running `docker build -t your-repo .`
+  - by running `docker build --network=host -t your-repo .`
+  - `--network=host` will allow you to access the host's port
 - Start container
-  - Run `docker run -p 3000:3000 your-repo`
+  - Run `docker run -e DATABASE_URL=postgresql://postgres:yourpassword@postgres:5432/postgres --network network_name -p 3000:3000 your-repo`
 
 ## Installation using docker-compose.yml
 
