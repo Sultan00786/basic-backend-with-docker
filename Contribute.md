@@ -26,4 +26,4 @@ postgers url in`.env file
 ## Installation using docker-compose.yml
 
 - Install docker from [docker](https://www.docker.com/get-started)
-- Run `docker compose up -d`
+- Run `docker compose up`
